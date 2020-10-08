@@ -12,11 +12,11 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM node:alpine
-LABEL maintainer="philippe_mulet@fr.ibm.com"
+FROM node:ubuntu
+LABEL maintainer="sikshir2@in.ibm.com"
 
 # hadolint ignore=DL3017
-RUN apk update && apk upgrade
+RUN apt-get update && apt-get upgrade
 
 # Install the application
 COPY package.json /app/package.json
