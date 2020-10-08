@@ -12,17 +12,17 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM node:ubuntu
+FROM ubuntu:latest
 LABEL maintainer="sikshir2@in.ibm.com"
 
 # hadolint ignore=DL3017
-RUN apt-get update && apt-get upgrade
+RUN apt-get -y update && apt-get -y upgrade
 
 # Install the application
 COPY package.json /app/package.json
 COPY app.js /app/app.js
 WORKDIR /app
-RUN npm install
+RUN apt-get -y install npm
 
 # Support to for arbitrary UserIds
 # https://docs.openshift.com/container-platform/3.11/creating_images/guidelines.html#openshift-specific-guidelines
